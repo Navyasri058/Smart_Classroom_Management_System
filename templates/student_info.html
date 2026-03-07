@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Info</title>
+    <style>
+        body{
+            background: linear-gradient(135deg,#232526,#414345);
+            min-height:100vh;
+            font-family:Segoe UI;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .profile-card{
+            width:420px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(12px);
+            border-radius:25px;
+            padding:35px;
+            text-align:center;
+            box-shadow:0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .avatar{
+            width:120px;
+            height:120px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.3);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:60px;
+            margin:0 auto 20px;
+        }
+
+        h2{
+            margin-bottom:10px;
+        }
+
+        .info{
+            margin-top:25px;
+            text-align:left;
+        }
+
+        .row{
+            background:rgba(255,255,255,0.2);
+            padding:14px 18px;
+            border-radius:15px;
+            margin-bottom:15px;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .label{
+            opacity:0.8;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:25px;
+            padding:10px 30px;
+            background:white;
+            color:#414345;
+            border-radius:30px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="profile-card">
+
+    <div class="avatar">👤</div>
+
+    <h2>{{ student["NAME"] }}</h2>
+    <p>{{ student["BRANCH"] }}</p>
+
+    <div class="info">
+        <div class="row">
+            <span class="label">Roll No</span>
+            <span>{{ student["ROLL NO"] }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Phone</span>
+            <span>{{ student.get("PHONE NO","N/A") }}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Attendance</span>
+            <span>
+                {{ student["PRESENT_COUNT"] + student["ABSENT_COUNT"] }} Days
+            </span>
+        </div>
+
+        <div class="row">
+            <span class="label">Result</span>
+            <span>{{ student.get("RESULT","N/A") }}</span>
+        </div>
+    </div>
+
+    <a href="/student/dashboard/{{ student['ROLL NO'] }}">⬅ Back</a>
+
+</div>
+
+</body>
+</html>

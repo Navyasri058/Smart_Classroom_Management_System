@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academics</title>
+    <style>
+        body{
+            background: linear-gradient(135deg,#1f4037,#99f2c8);
+            min-height:100vh;
+            font-family:Segoe UI;
+            color:white;
+            padding:40px;
+        }
+
+        h2{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:25px;
+            max-width:900px;
+            margin:auto;
+        }
+
+        .subject{
+            background:rgba(255,255,255,0.2);
+            backdrop-filter:blur(10px);
+            border-radius:20px;
+            padding:25px;
+            text-align:center;
+            transition:0.3s;
+        }
+
+        .subject:hover{
+            transform:scale(1.08);
+            background:rgba(255,255,255,0.3);
+        }
+
+        .grade{
+            text-align:center;
+            margin-top:40px;
+            font-size:22px;
+        }
+
+        a{
+            display:block;
+            width:150px;
+            margin:30px auto;
+            padding:10px;
+            background:white;
+            color:#1f4037;
+            border-radius:30px;
+            text-align:center;
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>📚 Academic Performance</h2>
+
+<div class="grid">
+    <div class="subject">DBMS<br><b>{{ student["DBMS"] }}</b></div>
+    <div class="subject">DLCO<br><b>{{ student["DLCO"] }}</b></div>
+    <div class="subject">P&S<br><b>{{ student["P&S"] }}</b></div>
+    <div class="subject">ML<br><b>{{ student["ML"] }}</b></div>
+    <div class="subject">OT<br><b>{{ student["OT"] }}</b></div>
+</div>
+
+<div class="grade">
+    <b>Grade:</b> {{ student["GRADE"] }} <br>
+    <b>Result:</b> {{ student["RESULT"] }}
+</div>
+
+<a href="/student/dashboard/{{ student['ROLL NO'] }}">⬅ Back</a>
+
+</body>
+</html>

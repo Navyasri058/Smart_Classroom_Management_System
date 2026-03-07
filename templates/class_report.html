@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Class Overview Report</title>
+
+<style>
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+    padding: 30px;
+}
+
+.container {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 16px;
+    max-width: 1100px;
+    margin: auto;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: rgba(255,255,255,0.25);
+    padding: 12px;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: rgba(255,255,255,0.08);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📊 Class Academic Report</h1>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Branch</th>
+                    <th>Total Marks</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for stu in students %}
+                <tr>
+                    <td>{{ stu["ROLL NO"] }}</td>
+                    <td>{{ stu["NAME"] }}</td>
+                    <td>{{ stu["BRANCH"] }}</td>
+                    <td>{{ stu.get("TOTAL MARKS", "-") }}</td>
+                    <td>{{ stu.get("GRADE", "-") }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mark Academics | Smart Classroom</title>
+
+<style>
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        color: white;
+    }
+
+    .box {
+        width: 420px;
+        background: rgba(255,255,255,0.12);
+        padding: 30px;
+        border-radius: 16px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border-radius: 20px;
+        border: none;
+        outline: none;
+    }
+
+    button {
+        margin-top: 15px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 25px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .result {
+        margin-top: 15px;
+        background: rgba(0,0,0,0.25);
+        padding: 12px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .pass { color: #2ecc71; }
+    .fail { color: #e74c3c; }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>📘 Mark Academic Scores</h2>
+    <p style="text-align:center;">
+        {{ student["NAME"] }} ({{ student["ROLL NO"] }})
+    </p>
+
+    <form method="POST">
+        <input type="number" name="dbms" placeholder="DBMS" min="0" max="100" required>
+        <input type="number" name="dlco" placeholder="DLCO" min="0" max="100" required>
+        <input type="number" name="ps" placeholder="P & S" min="0" max="100" required>
+        <input type="number" name="ml" placeholder="ML" min="0" max="100" required>
+        <input type="number" name="ot" placeholder="OT" min="0" max="100" required>
+
+        <button type="submit">Calculate & Save</button>
+    </form>
+
+    {% if success %}
+    <div class="result">
+        <p>Total Marks: <b>{{ total }}</b></p>
+        <p>Percentage: <b>{{ percentage }}%</b></p>
+        <p>Grade: <b>{{ grade }}</b></p>
+        <p class="{{ 'pass' if result == 'Pass' else 'fail' }}">
+            Result: <b>{{ result }}</b>
+        </p>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

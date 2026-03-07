@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Attendance Tracker | Smart Classroom</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 900px;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    th {
+        background: rgba(255,255,255,0.2);
+    }
+
+    tr:nth-child(even) {
+        background: rgba(255,255,255,0.08);
+    }
+
+    select {
+        padding: 6px 14px;
+        border-radius: 20px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .present {
+        background: #2ecc71;
+        color: white;
+    }
+
+    .absent {
+        background: #e74c3c;
+        color: white;
+    }
+
+    .btn {
+        display: block;
+        margin: 30px auto 10px;
+        padding: 12px 40px;
+        border-radius: 30px;
+        border: none;
+        background: white;
+        color: #203a43;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .success {
+        text-align: center;
+        margin-top: 15px;
+        color: #2ecc71;
+        font-weight: bold;
+    }
+
+    .back {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .back a {
+        color: white;
+        text-decoration: none;
+        border: 1px solid white;
+        padding: 8px 25px;
+        border-radius: 25px;
+        transition: 0.3s;
+    }
+
+    .back a:hover {
+        background: white;
+        color: #203a43;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>📋 Attendance Tracker</h1>
+
+    <form method="POST">
+        <table>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+
+            {% for s in students %}
+            <tr>
+                <td>{{ s["ROLL NO"] }}</td>
+                <td>{{ s["NAME"] }}</td>
+                <td>
+                    <select name="{{ s['ROLL NO'] }}" onchange="colorChange(this)">
+                        <option value="">Select</option>
+                        <option value="P">Present</option>
+                        <option value="A">Absent</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <button class="btn" type="submit">Submit Attendance</button>
+    </form>
+
+    {% if success %}
+        <div class="success">✔ Attendance recorded successfully!</div>
+    {% endif %}
+
+    <div class="back">
+        <a href="{{ url_for('dashboard') }}">⬅ Back to Dashboard</a>
+    </div>
+</div>
+
+<script>
+function colorChange(select) {
+    select.classList.remove("present", "absent");
+
+    if (select.value === "P") {
+        select.classList.add("present");
+    } 
+    else if (select.value === "A") {
+        select.classList.add("absent");
+    }
+}
+</script>
+
+</body>
+</html>

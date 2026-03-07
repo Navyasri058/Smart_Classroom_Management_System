@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Records | Smart Classroom</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .box {
+            width: 420px;
+            background: rgba(255,255,255,0.12);
+            padding: 30px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 12px 0;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .menu button {
+            display: block;
+            width: 100%;
+            margin: 12px 0;
+        }
+
+        .error {
+            color: #ff6b6b;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+
+    <h2>📘 Academic Record Management</h2>
+
+    <!-- STEP 1: Student Entry -->
+    {% if not student %}
+    <form method="POST">
+        <input type="text" name="name" placeholder="Student Name" required>
+        <input type="text" name="roll_no" placeholder="Roll Number" required>
+        <button type="submit">Verify Student</button>
+    </form>
+    {% endif %}
+
+    <!-- ERROR -->
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <!-- STEP 2: Academic Menu -->
+    {% if student %}
+    <div class="menu">
+        <h3>Welcome</h3>
+
+        <button onclick="location.href='/mark-academics/{{ student['ROLL NO'] }}'">
+            📝 Mark Academic Scores
+        </button>
+
+        <button onclick="location.href='/student-report/{{ student['ROLL NO'] }}'">
+            📊 View Student Report
+        </button>
+
+        <button onclick="location.href='/dashboard'">
+            ⬅ Back to Dashboard
+        </button>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

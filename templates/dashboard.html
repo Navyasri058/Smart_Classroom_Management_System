@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Smart Classroom</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .dashboard {
+            width: 90%;
+            max-width: 1000px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.85;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+             display: block;
+        }
+
+        .card-link:hover {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.04);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            opacity: 0.85;
+        }
+
+        .logout {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .logout a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 35px;
+            border-radius: 30px;
+            border: 1px solid white;
+            transition: 0.3s;
+        }
+
+        .logout a:hover {
+            background: white;
+            color: #203a43;
+        }
+
+        .card-link .card {
+           cursor: pointer;
+       }
+
+    </style>
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="header">
+        <h1>Smart Classroom Dashboard</h1>
+        <p>Main Control Panel</p>
+    </div>
+
+    <div class="cards">
+      
+      <a href="/attendance" class="card-link">
+
+        <div class="card"> 
+            <div class="icon">📝</div> 
+            <h3>Attendance Tracker</h3> 
+            <p>Mark daily attendance of students</p> 
+        </div>
+     </a>
+
+      <a href="/academics" class="card-link">
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Academic Records</h3>
+                <p>Enter and view student academic details</p>
+            </div>
+      </a>
+
+
+     <a href="/add-student" class="card-link">
+            <div class="card">
+                <div class="icon">➕</div>
+                <h3>Add New Student</h3>
+                <p>Register new students into the system</p>
+            </div>
+     </a>
+
+
+      <a href="/attendance-rollback" class="card-link">
+            <div class="card">
+                <div class="icon">⏪</div>
+                <h3>Attendance Rollback</h3>
+                <p>Undo incorrect attendance entries</p>
+            </div>
+   
+        </a>
+
+        <a href="/class-report" class="card-link">
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>Class Overview Report</h3>
+                <p>View overall class academic performance</p>
+            </div>
+        </a>
+
+
+    </div>
+
+    <div class="logout">
+        <a href="/logout">Logout</a>
+    </div>
+
+</div>
+
+</body>
+</html>

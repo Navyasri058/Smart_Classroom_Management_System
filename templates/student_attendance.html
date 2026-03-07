@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+    <style>
+        body{
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            min-height:100vh;
+            font-family:Segoe UI;
+            color:white;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .card{
+            width:420px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(12px);
+            border-radius:25px;
+            padding:35px;
+            text-align:center;
+            box-shadow:0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .circle{
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            border:12px solid rgba(255,255,255,0.3);
+            border-top-color:#00ffcc;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-size:28px;
+            font-weight:bold;
+            margin:20px auto;
+            transform:rotate(-45deg);
+        }
+
+        .circle span{
+            transform:rotate(45deg);
+        }
+
+        .stats{
+            display:flex;
+            justify-content:space-between;
+            margin-top:30px;
+        }
+
+        .stat{
+            width:45%;
+            background:rgba(255,255,255,0.2);
+            padding:15px;
+            border-radius:15px;
+        }
+
+        a{
+            display:inline-block;
+            margin-top:25px;
+            padding:10px 30px;
+            background:white;
+            color:#203a43;
+            border-radius:30px;
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+<div class="card">
+    <h2>📊 Attendance</h2>
+
+    <div class="circle">
+        <span>{{ percentage }}%</span>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <h3>Present</h3>
+            <p>{{ student["PRESENT_COUNT"] }}</p>
+        </div>
+
+        <div class="stat">
+            <h3>Absent</h3>
+            <p>{{ student["ABSENT_COUNT"] }}</p>
+        </div>
+    </div>
+
+    <a href="/student/dashboard/{{ student['ROLL NO'] }}">⬅ Back</a>
+</div>
+</body>
+</html>

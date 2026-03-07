@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Attendance Rollback | Smart Classroom</title>
+
+<style>
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #232526, #414345);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        color: white;
+    }
+
+    .card {
+        width: 420px;
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    .warning {
+        background: rgba(255, 87, 87, 0.2);
+        padding: 15px;
+        border-radius: 12px;
+        color: #ffb3b3;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border-radius: 30px;
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        background: #ff4b4b;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1f1f;
+    }
+
+    .success {
+        margin-top: 20px;
+        color: #2ecc71;
+        font-weight: bold;
+    }
+
+    .error {
+        margin-top: 20px;
+        color: #ff6b6b;
+        font-weight: bold;
+    }
+
+    .back {
+        margin-top: 25px;
+    }
+
+    .back a {
+        text-decoration: none;
+        color: white;
+        border: 1px solid white;
+        padding: 8px 28px;
+        border-radius: 30px;
+        transition: 0.3s;
+    }
+
+    .back a:hover {
+        background: white;
+        color: #414345;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>↩ Attendance Rollback</h2>
+
+    <div class="warning">
+        ⚠ This will undo the <u>last attendance session</u><br>
+        This action cannot be reversed.
+    </div>
+
+    <form method="POST">
+        <button type="submit">Undo Attendance</button>
+    </form>
+
+    {% if message %}
+        <div class="success">{{ message }}</div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <div class="back">
+        <a href="{{ url_for('dashboard') }}">⬅ Back to Dashboard</a>
+    </div>
+
+</div>
+
+</body>
+</html>

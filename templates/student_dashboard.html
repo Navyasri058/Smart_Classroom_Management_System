@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+
+<body>
+<div class="container">
+
+    <h2>Welcome, {{ student["NAME"] }}</h2>
+
+    <div class="cards">
+
+        <div class="card"
+             onclick="location.href='/student/attendance/{{ student['ROLL NO'] }}'">
+            <h3>Attendance</h3>
+            <p>View attendance percentage</p>
+        </div>
+
+        <div class="card"
+             onclick="location.href='/student/academics/{{ student['ROLL NO'] }}'">
+            <h3>Academics</h3>
+            <p>View marks & grades</p>
+        </div>
+
+        <div class="card"
+             onclick="location.href='/student/info/{{ student['ROLL NO'] }}'">
+            <h3>Student Info</h3>
+            <p>View personal details</p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
