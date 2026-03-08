@@ -161,9 +161,33 @@ Navya Sri
 
 ## Project Screenshots
 
+### Rote page
+![Attendance](rote_page.png)
+
+### Teacher login
+![Attendance](teacher_login.png)
+
 ### Dashboard
-![Dashboard](dashboard.png)
+![Dashboard](Teacher_DashBoard.png)
 
 ### Attendance Page
-![Attendance](attendance.png)
+![Attendance](Attendance_page.png)
+
+### Student Undo attendance
+![Attendance](Undo_Attendance_page.png)
+
+### class report
+![Attendance](Class_Report.png)
+
+### Student DAshBOard
+![Attendance](Student_DashBoard.png)
+
+### Student info
+![Attendance](Student_info_page.png)
+
+### student report
+![Attendance](Student_report.png)
+
+### Student attendance
+![Attendance](Student_Attendance.png)
 
