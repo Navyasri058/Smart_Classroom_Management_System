@@ -159,3 +159,11 @@ Student Info + Attendance + Academics
 
 Navya Sri
 
+## Project Screenshots
+
+### Dashboard
+![Dashboard](dashboard.png)
+
+### Attendance Page
+![Attendance](attendance.png)
+
